@@ -10,13 +10,13 @@ pipeline {
         }
         stage ('build and scan') {
             steps {
-                withCredentials([string(credentialId:'sonartoken',variable:'Sonar_Token')]) {
+                withCredentials([string(credentialId:'sonar',variable:'Sonar_Token')]) {
                     withSonarQubeEnv('sonar') {
                         sh '''mvn package sonar:sonar \
-                            -Dsonar.projectKey=Naga1210/spring-petclinic \
-                            -Dsonar.orginization= Naga1210 \
-                            -Dsonar.host.url=https://sonarcloud.io \
-                            -Dsonar.login=$Sonar_Token'''
+                             -Dsonar.projectKey=Naga1210/spring-petclinic \
+                             -Dsonar.orginization= Naga1210 \
+                             -Dsonar.host.url=https://sonarcloud.io \
+                             -Dsonar.login=$Sonar_Token'''
                     
                     }
                 }
