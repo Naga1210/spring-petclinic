@@ -1,5 +1,5 @@
 pipeline {
-    agent {label:'spc'}
+    agent {label 'spc'}
 
 stages {
     stage ('git checkout') {
