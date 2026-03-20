@@ -7,9 +7,25 @@ stages:
     jobs:
       - job:
         steps:
-          - task:
+          - task: SonarQubePrepare@8
+            displayName: Prepare SonarCloud Analysis
+            inputs:
+              SonarQube: 'sonarjava'
+              scannerMode: 'Other'
+              projectKey: 'Naga1210_spring-petclinic'
+              projectName: 'spring-petclinic'
+          - task: Maven@4
             inputs:
               mavenPOMFile: 'pom.xml'
               goals: 'package'
               publishJUnitResults: true
               testResultsFiles: '**/surefire-reports/TEST-*.xml'
+          
+          - task: Maven@4
+            inputs:
+              mavenPomFile: 'pom.xml'
+              goals: 'sonar:sonar'
+              publishJUnitResults: false
+          - task: SonarQubePublish@8
+            inputs:
+              pollingTimeoutSec: '300' 
