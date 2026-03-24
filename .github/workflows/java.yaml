@@ -3,7 +3,7 @@ name: Java-workflow1
 on:
   push: 
     branches:
-      - main: 
+      - main 
 
 jobs: 
   build:
