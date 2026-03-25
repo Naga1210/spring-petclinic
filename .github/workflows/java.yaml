@@ -25,5 +25,5 @@ jobs:
           mvn clean verify sonar:sonar \
           -Dsonar.host.url=$SONAR_HOST_URL \
           -Dsonar.login=$SONAR_TOKEN \
-          -Dsonar.organization=Naga1210 \
+          -Dsonar.organization=naga1210 \
           -Dsonar.projectKey=Naga1210_spring-petclinic
