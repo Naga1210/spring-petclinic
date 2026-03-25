@@ -14,11 +14,5 @@ jobs:
       - name: git checkout
         uses: actions/checkout@v4
 
-      - name: Set up Java
-        uses: actions/setup-java@v4
-        with:
-          java-version: '21.0.2'
-          distribution: 'temurin'
-
       - name: build Java with maven
         run: mvn package 
