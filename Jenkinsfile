@@ -1,6 +1,10 @@
 pipeline {
     agent { label 'spc' }
 
+    parameters {
+        choice(name: 'goals', choices: ['package', 'clean', 'verify'], description: 'pick something')
+    }
+
     triggers {
         pollSCM('H/5 * * * *')   // every 5 minutes
     }
