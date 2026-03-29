@@ -33,9 +33,9 @@ pipeline {
             steps {
                 
                     sh '''
-                    docker image pull nginx:1.29,
-                    aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 052247097669.dkr.ecr.ap-northeast-1.amazonaws.com,
-                    docker tag nginx:1.29 052247097669.dkr.ecr.ap-northeast-1.amazonaws.com/dev/spcimage:latest,
+                    docker image pull nginx:1.29 && \
+                    aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 052247097669.dkr.ecr.ap-northeast-1.amazonaws.com && \
+                    docker tag nginx:1.29 052247097669.dkr.ecr.ap-northeast-1.amazonaws.com/dev/spcimage:latest && \
                     docker push 052247097669.dkr.ecr.ap-northeast-1.amazonaws.com/dev/spcimage:latest
                     '''
                 
